@@ -15,11 +15,11 @@ def get():
 	}
 
 	apartments = []
-	
+
 	for apartment in db['apartments'].find({}, db_filter):
 		apartment['user'] = db['users'].find_one({'id': apartment['user']}, db_filter)
 		apartments.append(apartment)
-	
+
 	# Ответ
 
 	res = {

@@ -7,7 +7,7 @@ from mongodb import db
 
 db['apartments'].remove()
 
-with open('apartments.json', 'r') as file:
+with open('data/test/apartments.json', 'r') as file:
 	apartments = json.loads(file.read())
 
 for apartment in apartments:
@@ -18,7 +18,7 @@ for apartment in apartments:
 
 db['users'].remove()
 
-with open('users.json', 'r') as file:
+with open('data/test/users.json', 'r') as file:
 	users = json.loads(file.read())
 
 for user in users:
