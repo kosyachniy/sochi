@@ -3,6 +3,7 @@
 {
 	lat: Широта (float),
 	lng: Долгота (float),
+	radius: Радиус (float),
 }
 ```
 
