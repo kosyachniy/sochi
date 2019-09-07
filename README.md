@@ -3,15 +3,17 @@
 ``` apartments ```
 ```
 {
+	id: ID апартаментов,
 	name: Название,
 	description: Описание,
+	rating: Рейтинг,
 	location: (Широта, Долгота),
-	user: ID,
+	user: ID пользователя,
 	price: Цена,
-	entertainment: {
+	entertainment: [{
 		name: Название,
 		location: (Широта, Долгота),
-	},
+	}],
 	photos: [Картинки],
 }
 ```
@@ -19,7 +21,7 @@
 ``` users ```
 ```
 {
-	id: ID,
+	id: ID пользователя,
 	name: Имя,
 	surname: Фамилия,
 	tel: Телефон,

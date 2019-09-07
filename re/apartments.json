@@ -1,0 +1,69 @@
+[
+	{
+		"id": 1,
+		"name": "Бабушка на час",
+		"description": "Побывай там, где никогда не был",
+		"rating": 9.3,
+		"location": [
+			44.079315,
+			39.118204
+		],
+		"user": 1,
+		"price": 500,
+		"entertainment": [
+			{
+				"name": "Подоить корову",
+				"location": [
+					44.079,
+					39.12
+				],
+				"photos": [
+					"https://agronomu.com/media/res/9/1/5/7/3/91573.p83phc.790.jpg",
+					"https://zab.ru/image/960x639/news_korovadojkafotonews.tut.by.jpg"
+				]
+			},
+			{
+				"name": "Снять сено",
+				"location": [
+					44.0795,
+					39.119
+				],
+				"photos": [
+					"https://s.poembook.ru/theme/16/7e/88/e8001f16235af9906e596e4b3c4a7fbaa32131aa.jpeg",
+					"https://stroy-podskazka.ru/images/article/orig/2019/07/kak-kosit-travu-kosoj-4.jpg"
+				]
+			}
+		],
+		"photos": [
+			"https://hdwallsbox.com/wallpapers/l/1920x1200/61/winter-trees-forest-abandoned-cottage-1920x1200-60209.jpg",
+			"https://s1.1zoom.ru/big3/705/364849-svetik.jpg"
+		]
+	},
+	{
+		"id": 2,
+		"name": "Город для лохов, деревня для пацанов",
+		"description": "Настоящая суровая деревня не для слабонервных",
+		"rating": 9.7,
+		"location": [
+			44.075,
+			39.11
+		],
+		"user": 2,
+		"price": 700,
+		"entertainment": [
+			{
+				"name": "Родить цыплёнков",
+				"location": [
+					44.0754,
+					39.111
+				],
+				"photos": [
+					"https://agronomu.com/media/res/5/3/1/4/3/53143.oveh40.790.jpg"
+				]
+			}
+		],
+		"photos": [
+			"https://otvet.imgsmail.ru/download/197607421_3ecceffc1ec779ea0acfbc2840b41691_800.jpg"
+		]
+	}
+]

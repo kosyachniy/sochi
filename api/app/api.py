@@ -5,7 +5,7 @@ from mongodb import db
 
 
 @app.route('/get', methods=['POST'])
-def post():
+def get():
 	print(request.json)
 
 	# Получение данных
