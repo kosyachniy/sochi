@@ -12,7 +12,7 @@ url = LINK + 'agroturizm/objects/?mo='
 data = []
 
 CATEGORIES = (
-	'озеро', 'ранчо', 'ферма', 'агрофирма', 'парк', 'винодельня',
+	'озеро', 'ранчо', 'ферма', 'фирма', 'парк', 'винодельня',
 	'подворье', 'грибной', 'чая', 'путь', 'компания', 'зоопарк',
 )
 
@@ -36,11 +36,24 @@ for article in articles:
 	except:
 		continue
 
-	if any(i in name for i in CATEGORIES):
+	def getGeo():
+		while True:
+			x = random.uniform(43.455421, 45.994610)
+			y = random.uniform(37.156351, 41.372443)
+			fl = lambda x, y: -1.050935 * x + 0.965895 * y + 11.475324
+			ft = lambda x, y: 2.66464 * x + 1.877251 * y - 194.694532
+			fr = lambda x, y: 1.046292 * x - 0.6491 * y - 19.693632
+			fb = lambda x, y: -2.669284 * x - 1.560456 * y + 178.5643
+
+			if fl(x, y) > 0 and fr(x, y) > 0 and ft(x, y) < 0 and fb(x, y) < 0:
+				return x, y
+
+	# !!! Entertainment
+	if False: # any(i in name.lower() for i in CATEGORIES):
 		if len(data):
 			data[random.randint(0, len(data)-1)]['entertainment'].append({
 				'name': name.strip(),
-				'location': (random.uniform(43.951895, 44.191241), random.uniform(38.946721, 39.435738)),
+				'location': getGeo(),
 				'photos': [LINK + img[23:-1]],
 			})
 
@@ -55,7 +68,7 @@ for article in articles:
 
 		'rating': random.randint(40, 100) / 10,
 		'price': random.randint(300, 2000),
-		'location': (random.uniform(43.951895, 44.191241), random.uniform(38.946721, 39.435738)),
+		'location': getGeo(),
 		'user': random.randint(1, 5),
 
 		"entertainment": [],
