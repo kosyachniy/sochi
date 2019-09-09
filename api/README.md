@@ -13,6 +13,7 @@
 	id: ID апартаментов (int),
 	name: Название (str),
 	description: Описание (str),
+	tags: [Теги (str)],
 	photos: [Картинки (str)],
 	price: Цена (int),
 	rating: Рейтинг (float),

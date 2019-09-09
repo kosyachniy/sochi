@@ -16,6 +16,15 @@ CATEGORIES = (
 	'подворье', 'грибной', 'чая', 'путь', 'компания', 'зоопарк',
 )
 
+TAGS = {
+	'парки': ('парк', 'рощ', 'озер', 'клуб', 'путь'),
+	'база отдыха': ('база отдыха'),
+	'частные дома': ('подворь', 'дом', 'комплекс', 'усадьб', 'имение', 'хутор', 'кфх'),
+	'производство': ('компан', 'фирм', 'дельня', 'фабрик', 'сбор'),
+	'фермы': ('ферм', 'ранчо', 'озер'),
+	'алкоголь': ('алко', 'вин'),
+}
+
 # Получаем html-код
 
 html = requests.get(url).text
@@ -48,27 +57,45 @@ for article in articles:
 			if fl(x, y) > 0 and fr(x, y) > 0 and ft(x, y) < 0 and fb(x, y) < 0:
 				return x, y
 
+	def getTags(name, cont):
+		tags = []
+
+		for tag in TAGS:
+			if any(i in name.lower() or i in cont.lower() for i in TAGS[tag]):
+				tags.append(tag)
+
+		return tags
+
+
+	name = name.strip()
+	description = description.strip()
+	photos = [LINK + img[23:-1]]
+	geo = getGeo()
+	tags = getTags(name, description)
+
 	# !!! Entertainment
 	if False: # any(i in name.lower() for i in CATEGORIES):
 		if len(data):
 			data[random.randint(0, len(data)-1)]['entertainment'].append({
-				'name': name.strip(),
-				'location': getGeo(),
-				'photos': [LINK + img[23:-1]],
+				'name': name,
+				'location': geo,
+				'photos': photos,
+				'tags': tags,
 			})
 
 		continue
 
 	req = {
 		'id': len(data) + 1,
-		'name': name.strip(),
+		'name': name,
 		'link': LINK + src,
-		'photos': [LINK + img[23:-1]],
-		'description': description.strip(),
+		'photos': photos,
+		'description': description,
+		'tags': tags,
 
 		'rating': random.randint(40, 100) / 10,
 		'price': random.randint(300, 2000),
-		'location': getGeo(),
+		'location': geo,
 		'user': random.randint(1, 5),
 
 		"entertainment": [],
